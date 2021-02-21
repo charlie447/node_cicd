@@ -5,7 +5,7 @@ pipeline {
     agent {
         docker {
             image 'node:14-alpine'
-            args '-u root'
+            args '-u root -p 3000:3000'
         }
     }
 
@@ -20,6 +20,12 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'deploying now...'
+                sh 'npm run start'
             }
         }
     }
