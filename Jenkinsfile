@@ -22,10 +22,10 @@ pipeline {
                 echo 'Testing...'
             }
         }
-        stage('deploy') {
+        stage('Deploy') {
             steps {
                 echo 'deploying now...'
-                sh 'npm run start'
+                sh 'npm run start &'
             }
         }
     }
