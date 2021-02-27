@@ -25,6 +25,12 @@ pipeline {
                 
             }
         }
+        stage('Sanity check') {
+            steps {
+                echo 'using `input` to popup a question.'
+                echo 'input `Does the staging environment look ok?`'
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'deploying now...'
